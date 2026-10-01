@@ -75,11 +75,14 @@ function Window.new(options)
     local closeButton = makeTopButton("Close", "×", -8)
     local minimizeButton = makeTopButton("Minimize", "−", -44)
 
+    local Welcome = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatsDevs/Own/main/src/Components/Welcome.luau"))()
+    local welcome = Welcome.new(frame, theme, options.Welcome)
+
     local content = Instance.new("Frame")
     content.Name = "Content"
     content.BackgroundTransparency = 1
-    content.Position = UDim2.fromOffset(12, 52)
-    content.Size = UDim2.new(1, -24, 1, -64)
+    content.Position = UDim2.fromOffset(12, 158)
+    content.Size = UDim2.new(1, -24, 1, -170)
     content.Parent = frame
 
     -- Ручка изменения размера.
@@ -98,6 +101,7 @@ function Window.new(options)
         Gui = gui,
         Frame = frame,
         Content = content,
+        Welcome = welcome,
         Theme = theme,
         Tabs = {},
         Minimized = false,
@@ -144,11 +148,13 @@ function Window.new(options)
         if object.Minimized then
             minimizeButton.Text = "+"
             content.Visible = false
+            welcome.Frame.Visible = false
             resizeHandle.Visible = false
             Animation.Tween(frame, {Size = minimizedSize}, 0.2)
         else
             minimizeButton.Text = "−"
             content.Visible = true
+            welcome.Frame.Visible = true
             resizeHandle.Visible = true
             Animation.Tween(frame, {Size = normalSize}, 0.2)
         end
@@ -203,6 +209,12 @@ end
 
 function Window:Destroy()
     self.Closed = true
+
+    if self.Welcome then
+        self.Welcome:Destroy()
+        self.Welcome = nil
+    end
+
     self.Gui:Destroy()
 end
 
@@ -210,6 +222,9 @@ function Window:Minimize()
     if not self.Minimized then
         self.Frame.Size = UDim2.fromOffset(self.Frame.AbsoluteSize.X, 42)
         self.Content.Visible = false
+        if self.Welcome then
+            self.Welcome.Frame.Visible = false
+        end
         self.Minimized = true
     end
 end
@@ -218,6 +233,9 @@ function Window:Restore()
     if self.Minimized then
         self.Frame.Size = UDim2.fromOffset(self.Size.X, self.Size.Y)
         self.Content.Visible = true
+        if self.Welcome then
+            self.Welcome.Frame.Visible = true
+        end
         self.Minimized = false
     end
 end

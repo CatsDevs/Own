@@ -27,7 +27,8 @@ function Welcome.new(parent, theme, options)
     card.Name = "Welcome"
     card.BackgroundColor3 = theme.Surface
     card.BorderSizePixel = 0
-    card.Size = UDim2.new(1, 0, 0, options.Height or 96)
+    card.Position = UDim2.fromOffset(12, 50)
+    card.Size = UDim2.new(1, -24, 0, options.Height or 96)
     card.Parent = parent
 
     local corner = Instance.new("UICorner")

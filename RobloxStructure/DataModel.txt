@@ -1,0 +1,141 @@
+Roblox DataModel
+|
++-- Workspace
+|   +-- Camera
+|   +-- Terrain
+|   +-- Models
+|   +-- Parts
+|   +-- Folders
+|   +-- Scripts
+|
++-- Players
+|   +-- Player
+|       +-- PlayerGui
+|       +-- PlayerScripts
+|       +-- Backpack
+|       +-- Character
+|
++-- Lighting
+|   +-- Atmosphere
+|   +-- Sky
+|   +-- BloomEffect
+|   +-- BlurEffect
+|   +-- ColorCorrectionEffect
+|   +-- DepthOfFieldEffect
+|   +-- SunRaysEffect
+|
++-- ReplicatedFirst
+|
++-- ReplicatedStorage
+|   +-- RemoteEvent
+|   +-- RemoteFunction
+|   +-- BindableEvent
+|   +-- BindableFunction
+|   +-- Modules
+|   +-- Assets
+|
++-- ServerScriptService
+|   +-- Scripts
+|   +-- Modules
+|
++-- ServerStorage
+|   +-- Models
+|   +-- Assets
+|   +-- Modules
+|
++-- StarterGui
+|   +-- ScreenGui
+|       +-- Frame
+|       +-- TextLabel
+|       +-- TextButton
+|       +-- ImageLabel
+|       +-- ImageButton
+|
++-- StarterPack
+|   +-- Tool
+|       +-- Handle
+|       +-- LocalScript
+|       +-- Script
+|
++-- StarterPlayer
+|   +-- StarterPlayerScripts
+|   +-- StarterCharacterScripts
+|   +-- StarterCharacter
+|
++-- SoundService
+|   +-- Sound
+|
++-- TextChatService
+|   +-- TextChannels
+|   +-- TextChatCommands
+|
++-- Teams
+|   +-- Team
+|
++-- Chat
+|
++-- LocalizationService
+|
++-- MaterialService
+|
++-- CollectionService
+|
++-- HttpService
+|
++-- MarketplaceService
+|
++-- RunService
+|
++-- UserInputService
+|
++-- TweenService
+|
++-- Debris
+|
++-- TeleportService
+|
++-- DataStoreService
+|
++-- MessagingService
+|
++-- MemoryStoreService
+|
++-- PathfindingService
+|
++-- PhysicsService
+|
++-- PolicyService
+|
++-- ProximityPromptService
+|
++-- SocialService
+|
++-- VoiceChatService
+|
++-- AssetService
+|
++-- InsertService
+|
++-- GroupService
+|
++-- BadgeService
+|
++-- TestService
+|
++-- ScriptContext
+|
++-- Stats
+|
++-- CoreGui
+|
++-- CorePackages
+|
++-- StarterGear
+|
++-- ReplicatedScriptService
+|
++-- NetworkClient
+|
++-- NetworkServer
+
+Note: some services are internal, restricted, plugin-only, client-only, server-only, or unavailable for normal game scripts. They are included here as DataModel reference names where appropriate.

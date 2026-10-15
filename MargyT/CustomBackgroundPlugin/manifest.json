@@ -1,0 +1,11 @@
+{
+  "id": "catsdevs.custombackground",
+  "name": "Custom Background",
+  "name_ru": "Цвет интерфейса",
+  "version": "1.0.0",
+  "author": "CatsDevs",
+  "description": "Choose a background colour from presets or enter a HEX colour.",
+  "description_ru": "Выбор цвета интерфейса из палитры или по HEX-коду.",
+  "entry": "cat.catsdevs.custombackground.CustomBackgroundPlugin",
+  "min_api": 3
+}

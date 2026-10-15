@@ -1,0 +1,54 @@
+name: Build MargyT plugin
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "MargyT/CustomBackgroundPlugin/**"
+      - ".github/workflows/build-margyt-plugin.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout plugin source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Checkout MargyT build tools
+        uses: actions/checkout@v4
+        with:
+          repository: narezany/MargyT
+          ref: main
+          path: _margyt
+
+      - name: Copy plugin into MargyT examples
+        run: |
+          mkdir -p _margyt/examples/custom-background
+          cp -R MargyT/CustomBackgroundPlugin/. _margyt/examples/custom-background/
+
+      - name: Build .mtp
+        working-directory: _margyt
+        run: |
+          python -m margyt.plugin examples/custom-background
+          find examples/custom-background -maxdepth 1 -type f -name '*.mtp' -print
+
+      - name: Upload .mtp plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: CustomBackgroundPlugin-mtp
+          path: _margyt/examples/custom-background/*.mtp
+          if-no-files-found: error
